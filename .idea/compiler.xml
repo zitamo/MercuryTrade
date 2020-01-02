@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="app-local-updater" />
+        <module name="app-core" />
+        <module name="app" />
+        <module name="app-shared" />
+        <module name="app-ui" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="app" target="1.8" />
+      <module name="app-core" target="1.8" />
+      <module name="app-local-updater" target="1.8" />
+      <module name="app-shared" target="1.8" />
+      <module name="app-ui" target="1.8" />
+      <module name="MercuryTrade" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

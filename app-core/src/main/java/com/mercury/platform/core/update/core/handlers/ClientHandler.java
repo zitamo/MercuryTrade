@@ -4,7 +4,6 @@ import com.google.common.primitives.Bytes;
 import com.mercury.platform.core.update.bus.UpdaterClientEventBus;
 import com.mercury.platform.core.update.bus.event.UpdateReceivedEvent;
 import com.mercury.platform.core.update.core.holder.ApplicationHolder;
-import com.mercury.platform.shared.config.Configuration;
 import com.mercury.platform.shared.store.MercuryStoreCore;
 import com.mercury.platform.update.UpdateDescriptor;
 import com.mercury.platform.update.UpdateType;
@@ -58,11 +57,11 @@ public class ClientHandler extends SimpleChannelInboundHandler<Object> {
     public void channelActive(ChannelHandlerContext context) throws Exception {
         this.context = context;
         if (context != null) {
-            if (Configuration.get().applicationConfiguration().get().isCheckOutUpdate()) {
-                LOGGER.info("Requesting update info from server");
-                Integer version = ApplicationHolder.getInstance().getVersion();
-                context.channel().writeAndFlush(new UpdateDescriptor(UpdateType.REQUEST_INFO, version));
-            }
+//            if (Configuration.get().applicationConfiguration().get().isCheckOutUpdate()) {
+//                LOGGER.info("Requesting update info from server");
+//                Integer version = ApplicationHolder.getInstance().getVersion();
+//                context.channel().writeAndFlush(new UpdateDescriptor(UpdateType.REQUEST_INFO, version));
+//            }
             MercuryStoreCore.checkOutPatchSubject.subscribe(state -> this.checkOutPatchNotes());
             MercuryStoreCore.startUpdateSubject.subscribe(state -> this.getLatestUpdate());
         }
